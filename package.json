@@ -63,6 +63,7 @@
 		"dist"
 	],
 	"dependencies": {
+		"clsx": "^1.1.1",
 		"js-yaml": "^3.13.1",
 		"react-custom-scrollbars": "^4.2.1",
 		"rebound": "^0.1.0"

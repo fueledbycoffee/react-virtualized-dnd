@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import clsx from 'clsx';
 import {dispatch, subscribe, unsubscribe} from '../util/event_manager';
 import {Scrollbars} from 'react-custom-scrollbars';
 import Util from './../util/util';
@@ -312,7 +313,7 @@ class DragDropContext extends Component {
 
 	render() {
 		return this.props.outerScrollBar ? (
-			<div ref={div => (this.container = div)} className={'drag-drop-context'} style={{display: 'flex', flexDirection: 'column'}}>
+			<div ref={div => (this.container = div)} className={clsx(['drag-drop-context', this.props.className])} style={{display: 'flex', flexDirection: 'column', ...this.props.style}}>
 				<Scrollbars
 					onScroll={this.handleScroll.bind(this)}
 					ref={scrollDiv => (this.outerScrollBar = scrollDiv)}
@@ -324,7 +325,7 @@ class DragDropContext extends Component {
 				</Scrollbars>
 			</div>
 		) : (
-			<div ref={div => (this.container = div)} className={'drag-drop-context'}>
+			<div ref={div => (this.container = div)} className={clsx(['drag-drop-context', this.props.className])} style={this.props.style}>
 				{this.props.children}
 			</div>
 		);
